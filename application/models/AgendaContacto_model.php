@@ -16,10 +16,10 @@ class AgendaContacto_model extends CI_Model
     }
 
 //Get Usuario
-    public function obtener($id){    
-        $this->db->select('usuario.*');
-        $this->db->from('usuario');    
-        $this->db->where('usuario.id',$id);
+     public function buscar($data){    
+        $this->db->select('contacto.id, contacto.nombre');
+        $this->db->from('contacto');    
+        $this->db->where('contacto.id',$data or 'contacto.nombre',$data);
         $consulta = $this->db->get();           
         return $consulta->row();
     }
