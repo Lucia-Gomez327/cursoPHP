@@ -17,7 +17,7 @@
 								<td colspan="2"><h5 class="text-success"><?=$telefono;?></h5></td>
 							</tr>
 						<?php }?>
-						<?php if(isset($edad)){?>
+						<?php if(isset($edad) || $edad != 0){?>
 							<tr>
 								<th >Edad :</th>
 								<td><?=$edad;?></td>

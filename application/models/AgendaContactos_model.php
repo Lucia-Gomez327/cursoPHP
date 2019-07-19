@@ -37,25 +37,24 @@ class AgendaContactos_model extends CI_Model
 
 
     public function listaContactos(){
-       $result =mysqli_query("SELECT * FROM contacto");
-      //  $data   =array();
-       if(mysql_num_rows($result) > 0){
-        while($row = mysql_fetch_assoc($result)){
-            echo $row['id'];
-          //$data[] = $row;
-        }
+
+        $this->db->select('contacto.*');
+        $this->db->from('contacto');
+        $query = $this->db->get();
+        return $query->result();
+
     }
-}
 
-public function obtener_x_nombre($nombre)
-{
-$this->db->select('contacto.*');
-$this->db->from('contacto');
-$this->where('contaco.nombre', $nombre);
 
-$consulta = $this->db->get();
+    public function obtener_x_nombre($nombre)
+    {
+        $this->db->select('contacto.*');
+        $this->db->from('contacto');
+        $this->where('contaco.nombre', $nombre);
 
-}
+        $consulta = $this->db->get();
+
+    }
 }
 
 ?>

@@ -21,20 +21,6 @@
 				</div>
 			</nav>
 			<!-- Lista Contactos -->
-			<div id="listaContactos" class="list-group"><p>
-				
-				<?php
+			<div id="listaContactos" class="list-group">
+				<?= $contactos; ?>
 
-				// ↓ Arreglo de contactos
-			//	$contactos = 
-			//	$this->AgendaContactos_model->listaContactos();
-			/*	$lista ='';
-				foreach($contactos as $contacto)
-				{
-					 $lista.= $this->load->view('card/contacto_card',$contacto,true);
-				}
-				echo $lista;*/
-				?>
-			</p>
-		</div>
-	</div>
