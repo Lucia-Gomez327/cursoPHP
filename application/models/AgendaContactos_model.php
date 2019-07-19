@@ -46,6 +46,16 @@ class AgendaContactos_model extends CI_Model
         }
     }
 }
+
+public function obtener_x_nombre($nombre)
+{
+$this->db->select('contacto.*');
+$this->db->from('contacto');
+$this->where('contaco.nombre', $nombre);
+
+$consulta = $this->db->get();
+
+}
 }
 
 ?>
