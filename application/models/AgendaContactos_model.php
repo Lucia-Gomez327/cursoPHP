@@ -5,6 +5,7 @@ class AgendaContactos_model extends CI_Model
     {
         parent::_coontruct();
     }
+
     public function alta($data){
         return $this->db->insert('contacto',$data);      
     }
@@ -36,6 +37,7 @@ class AgendaContactos_model extends CI_Model
 
 
 
+
     public function listaContactos(){
 
         $this->db->select('contacto.*');
@@ -54,7 +56,8 @@ class AgendaContactos_model extends CI_Model
 
         $consulta = $this->db->get();
 
-    }
+    }   
+
 }
 
 ?>

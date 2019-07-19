@@ -13,7 +13,6 @@
 
 						<?php if(isset($telefono)){?>
 							<tr>
-
 								<td colspan="2"><h5 class="text-success"><?=$telefono;?></h5></td>
 							</tr>
 						<?php }?>
@@ -33,7 +32,7 @@
 				</div>
 			</div>
 
-
+				
 			<a href="#"><?=$email?></a>
 		</div>
 	</div>
