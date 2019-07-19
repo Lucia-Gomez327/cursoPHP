@@ -20,8 +20,7 @@ class AgendaContactos_model extends CI_Model
         $this->db->select('contacto.*');
         $this->db->from('contacto');    
         $this->db->where('contacto.id',$id);
-        $consulta = $this->db->get();           
-        return $consulta->row();
+        $this->db->update('contacto.estado',2);     
     }
 
     public function listaContactos(){
