@@ -47,7 +47,6 @@ class AgendaContactos_model extends CI_Model
 
     }
 
-
     public function obtener_x_nombre($nombre)
     {
         $this->db->select('contacto.*');
