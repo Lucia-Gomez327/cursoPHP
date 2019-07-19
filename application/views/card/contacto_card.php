@@ -3,7 +3,7 @@
 	<div class=" card promoting-card  d-flex w-100 justify-content-between">
 		<div class="card-body d-flex flex-row">
 			
-			<img width="160px" src="http://lorempixel.com/400/400/people" class="img-fluid z-depth-1 rounded-circle" alt="">
+			<img width="160px" src="<?= $foto;?>" class="img-fluid z-depth-1 rounded-circle" alt="">
 
 			<div class="card-body">
 				<h2><?=$nombre;?>
