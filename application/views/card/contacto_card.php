@@ -6,21 +6,21 @@
 			<img width="160px" src="<?= $foto;?>" class="img-fluid z-depth-1 rounded-circle" alt="">
 
 			<div class="card-body">
-				<h2><?=$nombre;?>
-				<?php if(isset($apellido)){echo " ".$apellido; };?></h2>
+				<h1><?=$nombre;?>
+				<?php if(isset($apellido)){echo " ".$apellido; };?></h1>
 				<div class="collapse-content">
 					<table>
 
+						<?php if(isset($telefono)){?>
+							<tr>
+
+								<td colspan="2"><h5 class="text-success"><?=$telefono;?></h5></td>
+							</tr>
+						<?php }?>
 						<?php if(isset($edad)){?>
 							<tr>
 								<th >Edad :</th>
 								<td><?=$edad;?></td>
-							</tr>
-						<?php }?>
-						<?php if(isset($telefono)){?>
-							<tr>
-								<th>Tel :</th>
-								<td><?=$telefono;?></td>
 							</tr>
 						<?php }?>
 						<?php if(isset($DNI)){?>

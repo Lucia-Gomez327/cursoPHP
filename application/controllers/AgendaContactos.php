@@ -14,7 +14,7 @@ class AgendaContactos extends CI_Controller {
     $data = array(
       'id' => 9,
       'email'=> 'joseguzman@hotmail.com',
-      'telefono' =>12312,
+      'telefono' =>"2664-8654567",
       'nombre' => 'jose',
       'apellido' => 'Guzman',
       'edad' => '19',
@@ -24,7 +24,7 @@ class AgendaContactos extends CI_Controller {
     $data2 = array(
       'id' => 10,
       'email'=> 'albertogato@hotmail.com',
-      'telefono' =>12312,
+      'telefono' =>"3834-157854",
       'nombre' => 'alberto',
       'apellido' => 'Elgato',
       'edad' => '7',
