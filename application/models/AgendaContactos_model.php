@@ -16,10 +16,10 @@ class AgendaContactos_model extends CI_Model
         return $this->db->update('contacto',$data);     
     }
 //eliminacion
-    public function baja_x_mail($mail){
+    public function baja_x_email($email){
         $this->db->select('contacto.*');
         $this->db->from('contacto');    
-        $this->db->where('contacto.mail',$mail);
+        $this->db->where('contacto.email',$email);
         $this->db->update('contacto.estado',2);     
     }
 //lista de todos los contactos
@@ -35,7 +35,7 @@ class AgendaContactos_model extends CI_Model
     {
         $this->db->select('contacto.*');
         $this->db->from('contacto');
-        $this->where('contaco.nombre', $nombre);
+        $this->db->where('contaco.nombre', $nombre);
         $consulta = $this->db->get();           
         return $consulta->result();
     }
@@ -44,7 +44,7 @@ class AgendaContactos_model extends CI_Model
     {
         $this->db->select('contacto.*');
         $this->db->from('contacto');
-        $this->where('contacto.email', $email);
+        $this->db->where('contacto.email', $email);
         $consulta = $this->db->get();           
         return $consulta->result();
     }
