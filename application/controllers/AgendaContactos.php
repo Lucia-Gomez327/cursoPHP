@@ -16,10 +16,12 @@ class AgendaContactos extends CI_Controller {
 //agregar contactos
   public function agregar()
   {
+    $this->load->model('AgendaContactos_model'); 
+
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
     $edad     = $this->input->post('edad');
-    $email   = $this->input->post('emali');
+    $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
     $foto =  $this->input->post('foto');
 
@@ -32,15 +34,15 @@ class AgendaContactos extends CI_Controller {
       'foto' => $foto  
     );
 
-    $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
+    $consulta = $this->AgendaContactos_model->obtener_x_email($email);
     if(!$consulta){
      //alta
-      $this->agenda_model->agregar($data);
+      $this->AgendaContactos_model->agregar($data);
       return true;
     }
     else
     {
-      return true;
+      return false;
     }
   }
 
@@ -58,7 +60,7 @@ public function modificar ()
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
     $edad     = $this->input->post('edad');
-    $email   = $this->input->post('emali');
+    $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
     $foto =  $this->input->post('foto');
 
@@ -71,7 +73,7 @@ public function modificar ()
       'foto' => $foto  
     );
 
-$consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
+$consulta = $this->AgendaContactos_model->buscar_x_email($email);
     if(!$consulta){
      //alta
       $this->AgendaContactos_model->modifica($data);

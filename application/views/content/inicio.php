@@ -75,11 +75,11 @@
 													</div>
 
 													<div class="form-group">
-														<label for="number" class="cols-sm-2 control-label"><b>TELEFONO</b></label>
+														<label for="telefono" class="cols-sm-2 control-label"><b>TELEFONO</b></label>
 														<div class="cols-sm-10">
 															<div class="input-group">
 																<span class="input-group-text "onkeypress="return soloNumeros(event);" value="1"><i class="fas fa-phone-alt" aria-hidden="true"></i></span>
-																<input type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"/>
+																<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"/>
 																<script>
 																	function soloNumeros(e)
 																	{
@@ -97,11 +97,11 @@
 													<div class="form-group">
 														<input name="foto" id="foto" type="file" class="form-control-file border">
 													</div>
-													<button type="button"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
+													<button type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
 												</form>
 											</div>
 										</div>
-									</div>
+									</div> 	
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
