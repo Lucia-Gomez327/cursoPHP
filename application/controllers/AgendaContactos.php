@@ -36,6 +36,7 @@ class AgendaContactos extends CI_Controller {
     if(!$consulta){
      //alta
       $this->agenda_model->agregar($data);
+      redirect('inicio');
       return true;
     }
     else
@@ -47,14 +48,14 @@ class AgendaContactos extends CI_Controller {
   //baja
   public function baja($email)
   {
-      $nombre = $this->AgendaContactos_model->baja_x_mail($email);
-      redirect('inicio');
+    $nombre = $this->AgendaContactos_model->baja_x_mail($email);
+    redirect('inicio')
 
   } 
 
 //editar o modificar un contacto
-public function modificar ()
-{
+  public function modificar ()
+  {
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
     $edad     = $this->input->post('edad');
@@ -71,7 +72,7 @@ public function modificar ()
       'foto' => $foto  
     );
 
-$consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
+    $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
     if(!$consulta){
      //alta
       $this->AgendaContactos_model->modifica($data);
@@ -81,24 +82,23 @@ $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
     {
       return true;
     }
-}
+  }
 
 //buscar contactos
   public function otenerContacto(){
 
-$nombre = $this->input->post('buscar');
-// ↓ Arreglo de contactos
+    $nombre = $this->input->post('buscar');
     $contactos = $this->AgendaContactos_model->obtener_x_nombre($nombre);
     $lista ='';
     foreach($contactos as $contacto)
     {
-     $lista.= $this->load->view('card/contacto_card',$contacto,true);
-   }
-   $data = array(
-    'contactos'=> $lista
-  );
-   return $data;
- }
+      $lista.= $this->load->view('inicio',$contacto,true);
+    }
+    $data = array(
+      'contactos'=> $lista
+    );
+    return $data;
+  }
 
 
 
