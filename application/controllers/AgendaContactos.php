@@ -48,7 +48,7 @@ class AgendaContactos extends CI_Controller {
   public function baja($email)
   {
       $nombre = $this->AgendaContactos_model->baja_x_mail($email);
-      redirect('inicio')
+      redirect('inicio');
 
   } 
 
