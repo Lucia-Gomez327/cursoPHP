@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2019 a las 02:22:46
+-- Tiempo de generación: 20-07-2019 a las 02:09:09
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 5.6.35
 
@@ -36,7 +36,8 @@ CREATE TABLE `contacto` (
   `edad` int(11) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `telefono` varchar(15) NOT NULL,
-  `foto` varchar(445) DEFAULT NULL
+  `foto` varchar(445) DEFAULT NULL,
+  `estado` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
