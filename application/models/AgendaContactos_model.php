@@ -27,6 +27,7 @@ class AgendaContactos_model extends CI_Model
 
         $this->db->select('contacto.*');
         $this->db->from('contacto');
+        $this->db->where('contacto.estado',1)
         $query = $this->db->get();
         return $query->result();
     }
@@ -36,6 +37,8 @@ class AgendaContactos_model extends CI_Model
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contaco.nombre', $nombre);
+        $this->db->and_where('contaco.estado', 1);
+
         $consulta = $this->db->get();           
         return $consulta->result();
     }
@@ -45,6 +48,7 @@ class AgendaContactos_model extends CI_Model
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contacto.email', $email);
+        $this->db->and_where('contaco.estado', 1);
         $consulta = $this->db->get();           
         return $consulta->result();
     }
