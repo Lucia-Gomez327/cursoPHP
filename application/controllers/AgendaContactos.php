@@ -38,12 +38,8 @@ class AgendaContactos extends CI_Controller {
     if(!$consulta){
      //alta
 
-      $this->agenda_model->agregar($data);
-      redirect('inicio');
-
       $this->AgendaContactos_model->agregar($data);
-
-      return true;
+      redirect('AgendaContactos/inicio');
     }
     else
     {
@@ -55,7 +51,8 @@ class AgendaContactos extends CI_Controller {
   public function baja($email)
   {
     $nombre = $this->AgendaContactos_model->baja_x_mail($email);
-    redirect('inicio')
+    redirect('AgendaContactos/inicio');
+
 
   } 
 
@@ -81,7 +78,7 @@ class AgendaContactos extends CI_Controller {
 
     $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
 
-$consulta = $this->AgendaContactos_model->buscar_x_email($email);
+    $consulta = $this->AgendaContactos_model->buscar_x_email($email);
 
     if(!$consulta){
      //alta
