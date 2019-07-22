@@ -30,6 +30,18 @@ class AgendaContactos_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function Busqueda($busqueda){
+        $this->db->select('contacto.*');
+        $this->db->from('contacto');
+        $this->db->where('')
+
+    }
+
+
+
+
+
 //listar o buscar por nombre
     public function obtener_x_nombre($nombre)
     {

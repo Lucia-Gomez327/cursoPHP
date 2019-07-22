@@ -108,25 +108,6 @@ class AgendaContactos extends CI_Controller {
   }
 
 
-  public function Busqueda($busqueda){
-    $contactos = $this->AgendaContactos_model->listaContactos();
-    $result = array();
-    $regexp = ".*$busqueda.*/";
-    foreach ($contactos as $contacto)
-    {
-      if($contacto['nombre']){
-        $result[] = $contacto;
-      }
-    }
-
-    
-    if(count($result) != 0){
-      return $result;
-    }else{
-      return false;
-    }
-
-  }
 
 
 //listar todos los contactos
