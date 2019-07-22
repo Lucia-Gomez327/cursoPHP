@@ -43,11 +43,11 @@
 													</div>
 
 													<div class="form-group">
-														<label for="username" class="cols-sm-2 control-label"><b>EDAD</b></label>
+														<label for="username" class="cols-sm-2 control-label"><b>FECHA DE NACIMIENTO</b></label>
 														<div class="cols-sm-10">
 															<div class="input-group">
 																<span class="input-group-text"><i class="fa fa-user-tag fa" aria-hidden="true"></i></span>
-																<input type="text" class="form-control" name="edad" id="edad"  placeholder="Edad">
+																<input type="date" class="form-control date " name="fechaN" id="fechaN"  placeholder="Fecha de Nacimiento">
 															</div>
 														</div>
 													</div>

@@ -22,6 +22,8 @@ class AgendaContactos_model extends CI_Model
         $this->db->where('contacto.email',$email);
         $this->db->update('contacto.estado',2);     
     }
+
+    
 //lista de todos los contactos
     public function listaContactos(){
 
@@ -33,9 +35,11 @@ class AgendaContactos_model extends CI_Model
     }
 
     public function Busqueda($busqueda){
+
+        $RE=
         $this->db->select('contacto.*');
         $this->db->from('contacto');
-        $this->db->where('')
+        $this->db->where('contacto.nombre REGEXP')
 
     }
 
