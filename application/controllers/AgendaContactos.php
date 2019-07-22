@@ -23,7 +23,7 @@ class AgendaContactos extends CI_Controller {
     $edad     = $this->input->post('edad');
     $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
-    $foto =  $this->input->post('foto');
+    $foto =  upload($this->db->insert_id());
 
     $data = array(
       'nombre'   => $nombre,
@@ -126,23 +126,25 @@ class AgendaContactos extends CI_Controller {
    return $data;
  }
 
- public function subida()
+ public function upload($id)
  {//si existe el erchivo
   if($_FILE['f_archivo']['name'])
   {
-    $config['file_name'] = ;
+    $config['file_name'] = $id+1;
     $config['upload_path'] = './db/img/';
     $config['quality'] = '80%';
     $config['allowed_type'] = 'gif|jpg|png|jpeg';
     $config['max_size'] = '9000';
     $config['overwrite'] = true;
 
-  $this->load->librery('upload', $config);
-  $this->upload->do_upload('f_archivo');
-  $this->upload->data();
+    $this->load->librery('upload', $config);
+    $this->upload->do_upload('f_archivo');
+   return $this->upload->data('file_path');
 
 
   }
+
+
 
 }
 }
