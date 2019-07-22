@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2019 a las 02:09:09
+-- Tiempo de generación: 23-07-2019 a las 00:12:59
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 5.6.35
 
@@ -33,12 +33,23 @@ CREATE TABLE `contacto` (
   `DNI` varchar(45) DEFAULT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) DEFAULT NULL,
-  `edad` int(11) DEFAULT NULL,
+  `fechaNacimiento` date DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `telefono` varchar(15) NOT NULL,
   `foto` varchar(445) DEFAULT NULL,
   `estado` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `contacto`
+--
+
+INSERT INTO `contacto` (`id`, `DNI`, `nombre`, `apellido`, `fechaNacimiento`, `email`, `telefono`, `foto`, `estado`) VALUES
+(1, '25', 'lucia', 'gomez', '0000-00-00', 'qwe', '25', NULL, 1),
+(2, '25', 'david', 'qwe', '0000-00-00', 'lucia', '25', NULL, 1),
+(3, '25', 'david', 'qwe', '0000-00-00', 'lucia', '25', NULL, 1),
+(4, NULL, 'asd', 'asd', '0000-00-00', 'ads', '123', '', 1),
+(5, NULL, 'ad', 'asd', '0000-00-00', 'asd', 'asd', '', 1);
 
 --
 -- Índices para tablas volcadas
@@ -58,7 +69,7 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
