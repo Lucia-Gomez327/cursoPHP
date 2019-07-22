@@ -37,13 +37,18 @@ class AgendaContactos_model extends CI_Model
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contaco.nombre', $nombre);
+<<<<<<< HEAD
         $this->db->and_where('contaco.estado', 1);
 
         $consulta = $this->db->get();           
+=======
+>>>>>>> 6c6fd3c3ff0a47f4af3c4db02e30e367eb181b2d
         return $consulta->result();
     }
 
-     public function obtener_x_email($email)
+
+
+    public function obtener_x_email($email)
     {
         $this->db->select('contacto.*');
         $this->db->from('contacto');
