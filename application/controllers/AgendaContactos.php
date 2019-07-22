@@ -125,5 +125,25 @@ class AgendaContactos extends CI_Controller {
   );
    return $data;
  }
+
+ public function subida()
+ {//si existe el erchivo
+  if($_FILE['f_archivo']['name'])
+  {
+    $config['file_name'] = ;
+    $config['upload_path'] = './db/img/';
+    $config['quality'] = '80%';
+    $config['allowed_type'] = 'gif|jpg|png|jpeg';
+    $config['max_size'] = '9000';
+    $config['overwrite'] = true;
+
+  $this->load->librery('upload', $config);
+  $this->upload->do_upload('f_archivo');
+  $this->upload->data();
+
+
+  }
+
+}
 }
 ?>
