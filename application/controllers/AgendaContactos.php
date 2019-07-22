@@ -20,7 +20,8 @@ class AgendaContactos extends CI_Controller {
 
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
-    $edad     = $this->input->post('edad');
+    $fechaN    = $this->input->post('fechaN');
+    $DNI = $this->input->post('DNI');
     $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
     $foto =  upload($this->db->insert_id());
@@ -28,7 +29,8 @@ class AgendaContactos extends CI_Controller {
     $data = array(
       'nombre'   => $nombre,
       'apellido' => $apellido,
-      'edad' => $edad,
+      'DNI' => $DNI,
+      'fechaN' => $fechaN,
       'email' => $email,
       'telefono' => $telefono,
       'foto' => $foto  
@@ -61,7 +63,8 @@ class AgendaContactos extends CI_Controller {
   {
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
-    $edad     = $this->input->post('edad');
+    $DNI = $this->input->post('DNI');
+    $fechaN    = $this->input->post('fechaN');
     $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
     $foto =  $this->input->post('foto');
@@ -69,7 +72,8 @@ class AgendaContactos extends CI_Controller {
     $data = array(
       'nombre'   => $nombre,
       'apellido' => $apellido,
-      'edad' => $edad,
+      'DNI' => $DNI,
+      'fechaN' => $fechaN,
       'email' => $email,
       'telefono' => $telefono,
       'foto' => $foto  
@@ -139,8 +143,7 @@ class AgendaContactos extends CI_Controller {
 
     $this->load->librery('upload', $config);
     $this->upload->do_upload('f_archivo');
-   return $this->upload->data('file_path');
-
+    return $this->upload->data('file_path');
 
   }
 
