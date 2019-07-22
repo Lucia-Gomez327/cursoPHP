@@ -22,21 +22,21 @@
 
 		</div>
 		<div class="collapse" id="info<?=$id?>">
-								<?php if(isset($edad) || $edad != 0){?>
-										<tr>
-											<th >Edad :</th>
-											<td><?=$edad;?></td>
-										</tr>
-									<?php }?>
-									<?php if(isset($DNI)){?>
-										<tr>
-											<th>DNI :</th>
-											<td><?=$DNI;?></td>
-										</tr>
-									<?php }?></div>
-	</div>
+			<?php if(isset($fechaN)){?>
+				<tr>
+					<th >Fecha de Nacimiento :</th>
+					<td><?=$fechaN;?></td>
+				</tr>
+			<?php }?>
+			<?php if(isset($DNI)){?>
+				<tr>
+					<th>DNI :</th>
+					<td><?=$DNI;?></td>
+				</tr>
+				<?php }?></div>
+			</div>
 
 
-</div>
+		</div>
 
 
