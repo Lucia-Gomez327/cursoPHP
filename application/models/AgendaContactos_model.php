@@ -28,17 +28,32 @@ class AgendaContactos_model extends CI_Model
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contacto.estado',1);
+
+        $this->db->order_by("contacto.nombre asc , contacto.apellido asc");
+
         $query = $this->db->get();
         return $query->result();
     }
 
     public function Busqueda($busqueda){
+
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('');
 
-    }
 
+        $RE= '.*'.$busqueda.'.*';
+        $this->db->select('contacto.*');
+        $this->db->from('contacto');
+        $this->db->where("contacto.nombre REGEXP $RE");
+        $this->db->or_where("contacto.apellido REGEXP $RE");
+        $this->db->or_where("contacto.telefono REGEXP $RE");
+        $this->db->order_by("contacto.nombre asc , contacto.apellido asc");
+        $consulta = $this->db->get();     
+        return $consulta->result();
+
+
+    }
 
 
 
@@ -57,13 +72,12 @@ class AgendaContactos_model extends CI_Model
     }
 
 
-
     public function obtener_x_email($email)
     {
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contacto.email', $email);
-        $this->db->and_where('contaco.estado', 1);
+        $this->db->where('contacto.estado', 1);
         $consulta = $this->db->get();           
         return $consulta->result();
     }
