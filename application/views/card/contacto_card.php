@@ -23,18 +23,19 @@
 		</div>
 		<div class="collapse " id="info<?=$id?>">
 			<div class="row text-center">
-				
-				<?php if($fechaN != 0){?>
-					<div class="col d-">
+				<div class="col ">
+					<?php if($fechaN != 0){?>	
 						Fecha de Nacimiento :  <?=$fechaN;?>
-					</div>
-
-				<?php }?>
-				<?php if($DNI != 0){?>
-					<div class="col d-inline ">
+					<?php }?>
+					<?php if($DNI != 0){?>
 						DNI : <?=$DNI;?>
-					</div>
-				<?php }?>
+
+					<?php }?>
+				</div>
+				<div class="col-md-3 btn-group">
+					<button class="btn btn-info">Editar</button>
+					<button class="btn btn-danger">Eliminar</button>
+				</div>
 			</div>
 		</div>
 	</div>

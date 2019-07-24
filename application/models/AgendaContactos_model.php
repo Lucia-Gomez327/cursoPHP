@@ -10,9 +10,9 @@ class AgendaContactos_model extends CI_Model
         return $this->db->insert('contacto',$data);      
     }
  //editar un contacto   
-    public function modifica($data){
+    public function modificar($data){
         $this->db->select('contacto.*');
-        $this->db->where('contacto.email',$data->email);
+        $this->db->where('contacto.id',$data['id']);
         return $this->db->update('contacto',$data);     
     }
 //eliminacion

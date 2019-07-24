@@ -1,29 +1,42 @@
 <?php
-class AgendaContactos extends CI_Controller {
+class Prueba extends CI_Controller {
   public function index() {
 
-  }
+   $this->load->view('prueba');
+ }
+ 
+ public function Inicio(){
+  $data = array(
+    'nombre' => 'ZZZZZ',
+    'telefono' => '12345678'
+  );
+
+  $this->db->insert('contacto', $data);
+  $index = $this->db->insert_id();
+  echo $index;
+  $foto = $this->upload($index);
+
+  print_r($foto);
+}
 
 
-public function upload($id){//si existe el erchivo
-  //  print_r($_FILES);
-  $confing = array();
-  if($_FILES['foto']['name']) {
-    $config['file_name'] = 'nombre';
-    $config['upload_path'] = './db/img/';
- //   $config['quality'] = '80';
-  //  $config['allowed_type'] = 'gif|jpg|png|jpeg';
-   // $config['max_size'] = '9000'; 
-  //  $config['overwrite'] = true;
+
+public function upload($id)
+{
+  if ($_FILES['imagen']['name'])
+  {
+    $config['file_name']    = 'imagen_'.$id;
+    $config['upload_path']    = './upload/';
+    $config['quality']      = '70%';
+    $config['allowed_types']  = 'gif|jpg|png';
+    //  $config['max_size']     = '9000';
+    $config['overwrite']    = TRUE;
 
     $this->load->library('upload', $config);
-    $result = $this->upload->do_upload('foto');
-    //print_r($result);
-    print_r( $this->upload->data());
-    exit;
+    $this->upload->do_upload('imagen');
+    return $this->upload->data();
   }
-
-}  
+}
 
 } 
 ?>
