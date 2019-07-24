@@ -2,10 +2,11 @@
 class AgendaContactos extends CI_Controller {
   public function index()
   {
-    redirect('AgendaContactos/inicio');
-}
 
-public function inicio(){
+     redirect('AgendaContactos/inicio');
+ }
+
+ public function inicio(){
     $this->load->model('AgendaContactos_model');    
     $this->load->view('/header/header');
     $this->load->view('/content/inicio', $this->listarContactos()); 
@@ -24,7 +25,10 @@ public function agregar()
     $DNI = $this->input->post('DNI');
     $email   = $this->input->post('email');
     $telefono = $this->input->post('telefono');
-    $foto =  $this->upload($this->db->insert_id());
+
+    $R = rand(1,20);
+    $foto = " http://lorempixel.com/".$R."00/".$R."00/";
+    //$this->upload($this->db->insert_id());
 
     $data = array(
       'nombre'   => $nombre,
@@ -35,11 +39,9 @@ public function agregar()
       'telefono' => $telefono,
       'foto' => $foto  
   );
-
-    $consulta = $this->AgendaContactos_model->obtener_x_email($email);
-    if(!$consulta){
+    //Validacion de Email Unico
+    if(!$this->AgendaContactos_model->obtener_x_email($email)){
      //alta
-
       $this->AgendaContactos_model->agregar($data);
       redirect('AgendaContactos/inicio');
   }
@@ -122,32 +124,32 @@ public function listarContactos(){
     $lista ='';
     foreach($contactos as $contacto)
     {
-       $lista.= $this->load->view('card/contacto_card',$contacto,true);
-   }
-   $data = array(
+     $lista.= $this->load->view('card/contacto_card',$contacto,true);
+ }
+ $data = array(
     'contactos'=> $lista
 );
-   return $data;
+ return $data;
 }
 
-public function upload($id)
- {//si existe el erchivo
+public function upload($id){//si existe el erchivo
   //  print_r($_FILES);
-  if($_FILES['foto']['name'])
-  {
-    $config['file_name'] = 'nombre';
-    $config['upload_path'] = './db/img/';
+    $confing = array();
+    if($_FILES['foto']['name']) {
+        $config['file_name'] = 'nombre';
+        $config['upload_path'] = './db/img/';
  //   $config['quality'] = '80';
   //  $config['allowed_type'] = 'gif|jpg|png|jpeg';
    // $config['max_size'] = '9000'; 
+
   //  $config['overwrite'] = true;
-    
-    $this->load->library('upload', $config);
-    $result = $this->upload->do_upload('foto');
+
+        $this->load->library('upload', $config);
+        $result = $this->upload->do_upload('foto');
     //print_r($result);
-    print_r( $this->upload->data());
-    exit;
-}
+        print_r( $this->upload->data());
+        exit;
+    }
 }
 }   
 ?>
