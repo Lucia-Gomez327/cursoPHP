@@ -3,19 +3,19 @@ class AgendaContactos extends CI_Controller {
   public function index()
   {
     redirect('AgendaContactos/inicio');
-}
+  }
 
-public function inicio(){
+  public function inicio(){
     $this->load->model('AgendaContactos_model');    
     $this->load->view('/header/header');
     $this->load->view('/content/inicio', $this->listarContactos()); 
     $this->load->view('/content/fin');
     $this->load->view('/footer/footer');
-}
+  }
 
 //agregar contactos
-public function agregar()
-{
+  public function agregar()
+  {
     $this->load->model('AgendaContactos_model'); 
 
     $nombre   = $this->input->post('nombre');
@@ -34,7 +34,7 @@ public function agregar()
       'email' => $email,
       'telefono' => $telefono,
       'foto' => $foto  
-  );
+    );
 
     $consulta = $this->AgendaContactos_model->obtener_x_email($email);
     if(!$consulta){
@@ -42,25 +42,25 @@ public function agregar()
 
       $this->AgendaContactos_model->agregar($data);
       redirect('AgendaContactos/inicio');
-  }
-  else
-  {
+    }
+    else
+    {
       return false;
+    }
   }
-}
 
   //baja
-public function baja($email)
-{
+  public function baja($email)
+  {
     $nombre = $this->AgendaContactos_model->baja_x_mail($email);
     redirect('AgendaContactos/inicio');
 
 
-} 
+  } 
 
 //editar o modificar un contacto
-public function modificar ()
-{
+  public function modificar ()
+  {
     $nombre   = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
     $DNI = $this->input->post('DNI');
@@ -77,7 +77,7 @@ public function modificar ()
       'email' => $email,
       'telefono' => $telefono,
       'foto' => $foto  
-  );
+    );
 
 
     $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
@@ -88,15 +88,15 @@ public function modificar ()
      //alta
       $this->AgendaContactos_model->modifica($data);
       return true;
-  }
-  else
-  {
+    }
+    else
+    {
       return true;
+    }
   }
-}
 
 //buscar contactos
-public function otenerContacto(){
+  public function otenerContacto(){
 
     $nombre = $this->input->post('buscar');
     $contactos = $this->AgendaContactos_model->obtener_x_nombre($nombre);
@@ -104,33 +104,33 @@ public function otenerContacto(){
     foreach($contactos as $contacto)
     {
       $lista.= $this->load->view('inicio',$contacto,true);
-  }
-  $data = array(
+    }
+    $data = array(
       'contactos'=> $lista
-  );
-  return $data;
-}
+    );
+    return $data;
+  }
 
 
 
 
 //listar todos los contactos
-public function listarContactos(){
+  public function listarContactos(){
 
 // ↓ Arreglo de contactos
     $contactos = $this->AgendaContactos_model->listaContactos();
     $lista ='';
     foreach($contactos as $contacto)
     {
-       $lista.= $this->load->view('card/contacto_card',$contacto,true);
+     $lista.= $this->load->view('card/contacto_card',$contacto,true);
    }
    $data = array(
     'contactos'=> $lista
-);
+  );
    return $data;
-}
+ }
 
-public function upload($id)
+ public function upload($id)
  {//si existe el erchivo
   //  print_r($_FILES);
   if($_FILES['foto']['name'])
@@ -147,7 +147,7 @@ public function upload($id)
     //print_r($result);
     print_r( $this->upload->data());
     exit;
-}
+  }
 }
 }   
 ?>
