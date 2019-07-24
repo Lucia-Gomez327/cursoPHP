@@ -1,12 +1,12 @@
 <?php
-class AgendaContactos extends CI_Controller {
+class Agendacontactos extends CI_Controller {
 
     public function index(){
-        redirect('AgendaContactos/inicio');
+        redirect('Agendacontactos/inicio');
     }
 
     public function inicio(){
-        $this->load->model('AgendaContactos_model');    
+        $this->load->model('Agendacontactos_model');    
         $this->load->view('/header/header');
         $this->load->view('/content/inicio', $this->listarContactos()); 
         $this->load->view('/content/fin');
@@ -15,7 +15,7 @@ class AgendaContactos extends CI_Controller {
 
 
     public function agregar(){
-        $this->load->model('AgendaContactos_model'); 
+        $this->load->model('Agendacontactos_model'); 
         $nombre   = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
         $fechaN   = $this->input->post('fechaN');
@@ -31,28 +31,31 @@ class AgendaContactos extends CI_Controller {
             'email'    => $email,
             'telefono' => $telefono
         );
-
         //Validacion de Email Unico
-        if(!$this->AgendaContactos_model->obtener_x_email($email)){
-            $this->AgendaContactos_model->agregar($data);
-
+        if(!$this->Agendacontactos_model->obtener_x_email($email)){
+            $this->Agendacontactos_model->agregar($data);                      
+            $ID = $this->db->insert_id();
             //Upload de Imagen
-            $img = array(
-                'id'=> $this->db->insert_id(),
-                'foto' => $this->upload_img($this->db->insert_id())
-            );
-            $this->AgendaContactos_model->modificar($img);
+            
 
-            redirect('AgendaContactos/inicio');
+            $img = array(
+                'id'   => $ID,
+                'foto' => $this->upload_img($ID)
+            );
+
+            $this->Agendacontactos_model->modificar($img);
+
+            redirect('Agendacontactos/inicio');
         } else {
             return false;
         }
     }
 
-    public function baja($email){
-        $nombre = $this->AgendaContactos_model->baja_x_mail($email);
-        redirect('AgendaContactos/inicio');
+    public function baja($data){
+        $nombre = $this->Agendacontactos_model->baja($data);
+        redirect('Agendacontactos/inicio');
     } 
+
     public function modificar (){
         $nombre   = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
@@ -72,11 +75,10 @@ class AgendaContactos extends CI_Controller {
             'foto'     => $foto  
         );
 
-        $consulta = $this->AgendaContactos_model->buscar_x_email($data->email);
-        $consulta = $this->AgendaContactos_model->buscar_x_email($email);
+        $consulta = $this->Agendacontactos_model->buscar_x_email($email);
 
         if(!$consulta){
-            $this->AgendaContactos_model->modifica($data);
+            $this->Agendacontactos_model->modifica($data);
             return true;
         } else{
             return false;
@@ -86,7 +88,7 @@ class AgendaContactos extends CI_Controller {
 
     public function otenerContacto(){
         $nombre    = $this->input->post('buscar');
-        $contactos = $this->AgendaContactos_model->obtener_x_nombre($nombre);
+        $contactos = $this->Agendacontactos_model->obtener_x_nombre($nombre);
         $lista     ='';
         foreach($contactos as $contacto){
             $lista.= $this->load->view('inicio',$contacto,true);
@@ -102,7 +104,7 @@ class AgendaContactos extends CI_Controller {
 
 
     public function listarContactos(){
-        $contactos = $this->AgendaContactos_model->listaContactos();
+        $contactos = $this->Agendacontactos_model->listaContactos();
         $lista     ='';
         foreach($contactos as $contacto){
             $lista.= $this->load->view('card/contacto_card',$contacto,true);
@@ -124,7 +126,7 @@ class AgendaContactos extends CI_Controller {
 
           $this->load->library('upload', $config);
           $this->upload->do_upload('foto');
-          return  $this->upload->data('full_path');
+          return $this->upload->data('file_name');
       }
   }
 

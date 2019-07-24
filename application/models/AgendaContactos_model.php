@@ -1,5 +1,5 @@
 <?php
-class AgendaContactos_model extends CI_Model
+class Agendacontactos_model extends CI_Model
 {
     public function _contruct()
     {
@@ -16,10 +16,10 @@ class AgendaContactos_model extends CI_Model
         return $this->db->update('contacto',$data);     
     }
 //eliminacion
-    public function baja_x_email($email){
+    public function baja($data){
         $this->db->select('contacto.*');
         $this->db->from('contacto');    
-        $this->db->where('contacto.email',$email);
+        $this->db->where('contacto.email',$data['id']);
         $this->db->update('contacto.estado',2);     
     }
 //lista de todos los contactos
@@ -51,8 +51,6 @@ class AgendaContactos_model extends CI_Model
         $this->db->order_by("contacto.nombre asc , contacto.apellido asc");
         $consulta = $this->db->get();     
         return $consulta->result();
-
-
     }
 
 
