@@ -21,22 +21,25 @@
 			</div>
 
 		</div>
-		<div class="collapse" id="info<?=$id?>">
-			<?php if(isset($fechaN)){?>
-				<tr>
-					<th >Fecha de Nacimiento :</th>
-					<td><?=$fechaN;?></td>
-				</tr>
-			<?php }?>
-			<?php if(isset($DNI)){?>
-				<tr>
-					<th>DNI :</th>
-					<td><?=$DNI;?></td>
-				</tr>
-				<?php }?></div>
+		<div class="collapse " id="info<?=$id?>">
+			<div class="row text-center">
+				
+				<?php if($fechaN != 0){?>
+					<div class="col d-">
+						Fecha de Nacimiento :  <?=$fechaN;?>
+					</div>
+
+				<?php }?>
+				<?php if($DNI != 0){?>
+					<div class="col d-inline ">
+						DNI : <?=$DNI;?>
+					</div>
+				<?php }?>
 			</div>
-
-
 		</div>
+	</div>
+
+
+</div>
 
 
