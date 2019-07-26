@@ -1,5 +1,5 @@
 
-<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal"><i class="fas fa-plus d-inline mr-2"></i>Agregar</button>
+<button id="btn_modal"  type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal"><i class="fas fa-plus d-inline mr-2"></i>Agregar</button>
 
 <!-- Modal -->
 
@@ -20,14 +20,14 @@
 					<div class="col-sm-12">
 						<div class="main-login main-center">
 							<!-- FORM -->
-							<form enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>AgendaContactos/agregar">
-
+							<form id="form" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>Agendacontactos/agregar">
+								<input class="d-none" id="f_id" name="id">
 								<div class="form-group">
 									<label for="email" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
-											<input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre">
+											<input type="text" class="form-control" name="nombre" id="f_nombre"  placeholder="Nombre">
 										</div>
 									</div>
 								</div>
@@ -37,7 +37,7 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
-											<input type="text" class="form-control" name="apellido" id="apellido"  placeholder="Apellido">
+											<input type="text" class="form-control" name="apellido" id="f_apellido"  placeholder="Apellido">
 										</div>
 									</div>
 								</div>
@@ -47,7 +47,7 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
-											<input type="text" class="form-control" name="DNI" id="DNI"  placeholder="DNI">
+											<input type="text" class="form-control" name="DNI" id="f_DNI"  placeholder="DNI">
 										</div>
 									</div>
 								</div>
@@ -58,7 +58,7 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fa fa-user-tag fa" aria-hidden="true"></i></span>
-											<input type="date" class="form-control date " name="fechaN" id="fechaN"  placeholder="Fecha de Nacimiento">
+											<input type="date" class="form-control date " name="fechaN" id="f_fechaN"  placeholder="Fecha de Nacimiento">
 										</div>
 									</div>
 								</div>
@@ -68,7 +68,7 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-											<input type="text" class="form-control" name="email" id="email"  placeholder="Email">
+											<input type="text" class="form-control" name="email" id="f_email"  placeholder="Email">
 										</div>
 									</div>
 								</div>
@@ -78,15 +78,16 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text "onkeypress="return soloNumeros(event);" value="1"><i class="fas fa-phone-alt" aria-hidden="true"></i></span>
-											<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono">
+											<input type="text" class="form-control" name="telefono" id="f_telefono"  placeholder="Telefono">
 										</div>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<input type="file" name="foto" id="foto"  class="form-control-file border">
+									<input type="file" name="foto" id="f_foto"  class="form-control-file border">
 								</div>
-								<button type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
+								<button id="f_button" type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
+
 							</form>
 						</div>
 					</div>

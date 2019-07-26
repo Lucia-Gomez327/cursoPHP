@@ -31,64 +31,62 @@ class Agendacontactos extends CI_Controller {
             'email'    => $email,
             'telefono' => $telefono
         );
-        //Validacion de Email Unico
-        if(!$this->Agendacontactos_model->obtener_x_email($email)){
+//Validacion de Email Unico
+        if(!$this->Agendacontactos_model->buscar_x_email($email)){
             $this->Agendacontactos_model->agregar($data);                      
-            $ID = $this->db->insert_id();
-            //Upload de Imagen
-            
-
-            $img = array(
-                'id'   => $ID,
-                'foto' => $this->upload_img($ID)
-            );
-
-            $this->Agendacontactos_model->modificar($img);
-
+            $ID = $this->db->insert_id(); 
+//Upload de Imagen
+            $img_name = $this->upload_img($ID);
+            if($img_name){
+                $img = array(
+                    'id'   => $ID,
+                    'foto' => $img_name
+                );
+                $this->Agendacontactos_model->modificar($img);
+            }
             redirect('Agendacontactos/inicio');
-        } else {
-            return false;
-        }
+        } else { return false;}
     }
 
     public function baja($data){
+        $this->load->model('Agendacontactos_model'); 
         $nombre = $this->Agendacontactos_model->baja($data);
         redirect('Agendacontactos/inicio');
     } 
 
     public function modificar (){
+        $this->load->model('Agendacontactos_model'); 
+        $id       = $this->input->post('id');
         $nombre   = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
         $DNI      = $this->input->post('DNI');
         $fechaN   = $this->input->post('fechaN');
         $email    = $this->input->post('email');
-        $telefono = $this->input->post('telefono');
-        $foto     = $this->input->post('foto');
+        $telefono = $this->input->post('telefono'); 
 
         $data = array(
+            'id'       => $id,
             'nombre'   => $nombre,
             'apellido' => $apellido,
             'DNI'      => $DNI,
             'fechaN'   => $fechaN,
             'email'    => $email,
-            'telefono' => $telefono,
-            'foto'     => $foto  
+            'telefono' => $telefono
+
         );
-
-        $consulta = $this->Agendacontactos_model->buscar_x_email($email);
-
-        if(!$consulta){
-            $this->Agendacontactos_model->modifica($data);
-            return true;
-        } else{
-            return false;
+        $img_name = $this->upload_img($id);
+        if($img_name){
+            $data['foto'] = $img_name;
         }
+        $this->Agendacontactos_model->modificar($data);
+        redirect('Agendacontactos/inicio');
     }
 
 
     public function otenerContacto(){
+        $this->load->model('Agendacontactos_model'); 
         $nombre    = $this->input->post('buscar');
-        $contactos = $this->Agendacontactos_model->obtener_x_nombre($nombre);
+        $contactos = $this->Agendacontactos_model->buscar_x_nombre($nombre);
         $lista     ='';
         foreach($contactos as $contacto){
             $lista.= $this->load->view('inicio',$contacto,true);
@@ -98,9 +96,6 @@ class Agendacontactos extends CI_Controller {
         );
         return $data;
     }
-
-
-
 
 
     public function listarContactos(){
@@ -117,18 +112,17 @@ class Agendacontactos extends CI_Controller {
 
     public function upload_img($id){
         if($_FILES['foto']['name']) {
-          $config['file_name']    = $id;
-          $config['upload_path']    = './db/img/';
-          $config['quality']      = '70%';
-          $config['allowed_types']  = 'gif|jpg|png';
-          //  $config['max_size']     = '9000';
-          $config['overwrite']    = TRUE;
+            $config['file_name']     = $id;
+            $config['upload_path']   = './db/img/';
+            $config['quality']       = '70%';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['overwrite']     = TRUE;
 
-          $this->load->library('upload', $config);
-          $this->upload->do_upload('foto');
-          return $this->upload->data('file_name');
-      }
-  }
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('foto');
+            return $this->upload->data('file_name');
+        }else{ return false; }
+    }
 
 }   
 ?>
