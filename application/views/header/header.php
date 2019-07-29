@@ -19,7 +19,13 @@
 	src="<?= base_url(); ?>assets/JQuery/js/jquery-3.4.1.min.js"> </script>
 
 	<script>
-		src="<?echo base_url();?>application/views/script/script_validacion.php"
+		src="<?echo base_url();?>assets/JQuery/js/script_validacion.php"
 	</script>
 
-<!-- X -->
+	<style>
+		.border-danger{
+			border:solid red;
+		}
+	</style>
+
+	<!-- X -->
