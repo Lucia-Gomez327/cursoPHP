@@ -1,6 +1,7 @@
 <?php
 class Agendacontactos extends CI_Controller {
 
+
   public function index(){
     redirect('Agendacontactos/inicio');
   }
@@ -9,7 +10,7 @@ class Agendacontactos extends CI_Controller {
     $this->load->model('Agendacontactos_model');    
     $this->load->view('/header/header');
     $this->load->view('/content/inicio', $this->listarContactos()); 
-    $this->load->view('/content/fin');
+    $this->load->view('/script/inicio_script');
     $this->load->view('/footer/footer');
   }
 

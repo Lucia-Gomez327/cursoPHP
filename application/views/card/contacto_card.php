@@ -6,8 +6,8 @@
 			<div class="card-body">
 				<div id="id" class="d-none"><?php echo $id?></div>
 				<h1>
-					<span id="nombre"><?php echo $nombre;?></span>
-					<span id="apellido"><?php if(isset($apellido)){echo " ".$apellido; };?></span>
+					<span id="nombre"><?php echo $nombre;?></span> &nbsp;
+					<span id="apellido"><?php if(isset($apellido)){echo $apellido; };?></span>
 				</h1>
 				<div class="collapse-content">
 					<table>

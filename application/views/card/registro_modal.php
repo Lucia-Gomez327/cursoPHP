@@ -83,19 +83,11 @@
 									</div>
 								</div>
 
-								<form action="<?= base_url()?>inicio/upload" method="post" enctype="multipart/form-data">
 
-									<div class="form-group">
-										<input type="file" name="foto" id="f_foto"  class="form-control-file border">
-									</div>
-
-								</form>
-								<button type="submit"  class="btn btn-primary btn-lg btn-block login-button" id="f_agregar" 
-								
-								>AGENDAR</button>
-
-								<!-- <button id="f_button" type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button> -->
-
+								<div class="form-group">
+									<input type="file" name="foto" id="foto"  class="form-control-file border">
+								</div>
+								<button id="f_button" type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
 
 							</form>
 						</div>
