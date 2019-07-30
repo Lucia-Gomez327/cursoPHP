@@ -1,5 +1,5 @@
 
-<button id="btn_modal"  type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal"><i class="fas fa-plus d-inline mr-2"></i>Agregar</button>
+<button id="btn_modal"  type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus d-inline mr-2"></i>Agregar</button>
 
 <!-- Modal -->
 
