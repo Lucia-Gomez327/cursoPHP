@@ -23,7 +23,7 @@
 							<form id="form" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>Agendacontactos/agregar">
 								<input class="d-none" id="f_id" name="id">
 								<div class="form-group">
-									<label for="email" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
+									<label for="nombre" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
@@ -33,7 +33,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="email" class="cols-sm-2 control-label"><b>APELLIDO</b></label>
+									<label for="apellido" class="cols-sm-2 control-label"><b>APELLIDO</b></label>
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
