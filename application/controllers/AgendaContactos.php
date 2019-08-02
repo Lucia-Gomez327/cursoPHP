@@ -31,10 +31,12 @@ class Agendacontactos extends CI_Controller {
       'email'    => $email,
       'telefono' => $telefono
     );
+
 //Validacion de Email Unico
-    if(!$this->Agendacontactos_model->buscar_x_email($email)){
+    if($email == null || !$this->Agendacontactos_model->buscar_x_email($email)){
       $this->Agendacontactos_model->agregar($data);                      
       $ID = $this->db->insert_id(); 
+
 //Upload de Imagen
       $img_name = $this->upload_img($ID);
       if($img_name){
@@ -43,9 +45,12 @@ class Agendacontactos extends CI_Controller {
           'foto' => $img_name
         );
         $this->Agendacontactos_model->modificar($img);
+
       }
       redirect('Agendacontactos/inicio');
-    } else { return false;}
+    } else { 
+      return false;
+      }
   }
 
   public function baja($data){

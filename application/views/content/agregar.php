@@ -85,7 +85,7 @@
 						</div>
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
+							<button type="button" id="f_agendar"class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
 						</div>
 					</form>
 						</div>

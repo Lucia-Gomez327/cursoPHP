@@ -21,7 +21,7 @@
 						<div class="main-login main-center">
 							<!-- FORM -->
 							<form id="form" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>Agendacontactos/agregar">
-								<input class="d-none" id="f_id" name="id">
+								<input  class="d-none" id="f_id" name="id">
 								<div class="form-group">
 									<label for="email" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
 									<div class="cols-sm-10">
@@ -85,9 +85,9 @@
 
 
 								<div class="form-group">
-									<input type="file" name="foto" id="foto"  class="form-control-file border">
+									<input type="file" name="foto" id="foto" 		 class="form-control-file border">
 								</div>
-								<button id="f_button" type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
+								<button id="f_agendar" name="f_agendar"type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
 
 							</form>
 						</div>

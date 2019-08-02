@@ -36,7 +36,7 @@
 					<?php }?>
 				</div>
 				<div class="col-md-3 btn-group">
-					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info">Editar</button>
+					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)" class="btn btn-info">Editar</button>
 					<button id ="eliminar<?php echo $id?>" class="btn btn-danger">Eliminar</button>
 				</div>
 			</div>

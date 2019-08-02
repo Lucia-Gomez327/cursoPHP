@@ -12,20 +12,24 @@
 		th{
 			text-align: right
 		}
+
 	</style>
 
 	<!-- JQUERY -->
 	<script
 	src="<?= base_url(); ?>assets/JQuery/js/jquery-3.4.1.min.js"> </script>
 
-	<script>
-		src="<?echo base_url();?>assets/JQuery/js/script_validacion.php"
-	</script>
+	
 
 	<style>
-		.border-danger{
-			border:solid red;
+		.border{
+			border: grey solid 2px;
 		}
+		
+		.border-danger{
+			border:solid red 3px;
+		}
+		
 	</style>
 
 	<!-- X -->

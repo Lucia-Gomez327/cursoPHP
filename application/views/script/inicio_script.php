@@ -39,20 +39,118 @@
 	$('#f_button').html('EDITAR');
 	cambiarAction('modificar');
 
+};
+
+$("#f_agendar").click(function(event){
+	
+	
+	var nombre= $("#f_nombre").val();
+	var apellido= $("#f_apellido").val();
+	var DNI=$("#f_DNI").val();
+	var fechaN= $("#f_fechaN").val();
+	var email= $("#f_email").val();
+	var telefono= $("#f_telefono").val();
+
+	
+	if(!nombre_tel(nombre,telefono) || !v_email(email))
+	{
+		event.preventDefault();
+	}
+	//v_email(email);
+	v_fecha(fechaN);
+	v_DNI(DNI);
+
+});
+
+function nombre_tel(nombre,telefono){
+	
+	var ex_num =new RegExp(/[^0-9]/);
+
+	//nombre
+	if(nombre.length<=0)
+	{
+		$(f_nombre).addClass('border-danger');
+		return false;
+	}
+	else{
+		$(f_nombre).removeClass('border-danger');+
+		return true;
+	}
+
+	//telefono
+	if (telefono.length<=0 || ex_num.test(telefono)) {
+		$(f_telefono).addClass('border-danger');
+		return false;
+	}
+	else{
+		$(f_telefono).removeClass('border-danger');
+		return true;
+	}
+};
+
+function v_fecha(fechaN)
+{
+	var hoy = new Date();
+	dia = hoy.getDate(); 
+	mes = hoy.getMonth() + 01;
+	anio= hoy.getFullYear();
+	fecha_actual = String(anio+"-0"+mes+"-0"+dia);
+
+	if(fechaN > fecha_actual)
+	{
+		$(f_fechaN).addClass('border-danger');
+		return false;
+	}
+	else{
+		$(f_fechaN).removeClass('border-danger');
+		return true;
+	}
+
+
+};
+
+function v_email(email)
+{
+	var exEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+	if(email.length>0){
+
+		if(!exEmail.test(email))
+		{
+			$(f_email).addClass('border-danger');
+		}
+		else{	
+			$(f_email).removeClass('border-danger');
+		}
+	}
+	else{
+		$(f_email).removeClass('border-danger');
+	}
+
+
+};
+
+
+function v_DNI(DNI)
+{
+	var exNum = /^[0-9]+$/;
+
+//DNI
+if(DNI.length>0){
+
+	if(!exNum.test(DNI))
+	{
+		$(f_DNI).addClass('border-danger');
+	}
+	else{
+		$(f_DNI).removeClass('border-danger');
+	}
+}
+else{
+	$(f_DNI).removeClass('border-danger');
 }
 
-
-function validar(){
-	alert(nombre);
-	var nombre= $("f_nombre").val();
-	var apellido= $("f_apellido").val();
-	var DNI=$("f_DNI").val();
-	var fechaN= $("f_fechaN").val();
-	var email= $("f_email").val();
-	var telefono= $("f_telefono").val();
-
-
-}
+};
 
 
 
