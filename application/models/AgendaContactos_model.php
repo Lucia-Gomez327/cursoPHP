@@ -16,18 +16,26 @@ class Agendacontactos_model extends CI_Model
         return $this->db->update('contacto',$data);     
     }
 
-    public function baja($data){
-        $this->db->select('contacto.*');
-        $this->db->from('contacto');    
-        $this->db->where('contacto.id',$data['id']);
-       return $this->db->update('contacto.estado',2);     
-    }
+    public function baja($id, $data){  
+        $this->db->where('contacto.id',$id);
+       return $this->db->update('contacto', $data);     
+    }    
+    
 
     public function listaContactos(){
         $this->db->select('contacto.*');
         $this->db->from('contacto');
         $this->db->where('contacto.estado',1);
         $this->db->order_by("contacto.nombre asc , contacto.apellido asc");
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+     public function listaReclamos(){
+        $this->db->select('reclamo.*');
+        $this->db->from('reclamo');
+        $this->db->where('reclamo.estado',1);
+        $this->db->order_by("reclamo.id asc , contacto.fecha asc");
 
         $query = $this->db->get();
         return $query->result();

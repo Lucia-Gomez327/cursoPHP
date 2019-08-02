@@ -1,4 +1,5 @@
-	</div>
+
+</div>
 </div>
 <script>
 
@@ -106,6 +107,7 @@ function v_fecha(fechaN)
 		return true;
 	}
 
+<<<<<<< HEAD
 
 };
 
@@ -151,6 +153,32 @@ else{
 }
 
 };
+=======
+function validar(){
+	alert(nombre);
+	var nombre= $("f_nombre").val();
+	var apellido= $("f_apellido").val();
+	var DNI=$("f_DNI").val();
+	var fechaN= $("f_fechaN").val();
+	var email= $("f_email").val();
+	var telefono= $("f_telefono").val();
+}
+
+$('#eliminar_usuarios').click(function(){
+	//mostrar checkbox
+	$('div[name=cb_eliminar]').toggleClass('d-none');
+	
+	if($('div[name=Contacto_Card]').attr('data-toggle')){
+		$('div[name=Contacto_Card]').removeAttr('data-toggle');
+		alert("Modo Eliminar");
+	}else{
+		$('div[name=Contacto_Card]').attr('data-toggle','collapse');
+		alert("Modo Normal");
+	}
+	$("div[name=info]").collapse("hide");
+	//$('#Contacto_Card').attr('data-toggle', 'modal');
+});
+>>>>>>> 75cab616177d0270430467c8d89fc14748410716
 
 
 

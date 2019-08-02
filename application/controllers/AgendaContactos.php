@@ -14,6 +14,11 @@ class Agendacontactos extends CI_Controller {
     $this->load->view('/footer/footer');
   }
 
+
+//VISTA DE LA LISTA DE RECLAMOS
+
+
+
   public function agregar(){
     $this->load->model('Agendacontactos_model'); 
     $nombre   = $this->input->post('nombre');
@@ -53,9 +58,13 @@ class Agendacontactos extends CI_Controller {
       }
   }
 
-  public function baja($data){
-    $this->load->model('Agendacontactos_model'); 
-    $nombre = $this->Agendacontactos_model->baja($data);
+  public function baja(){
+    $this->load->model('Agendacontactos_model');
+    $id = $this->uri->segment(3); 
+    $data = array(
+      'estado' => 2,
+    );
+    $this->Agendacontactos_model->baja($id,$data);
     redirect('Agendacontactos/inicio');
   } 
 
@@ -108,6 +117,18 @@ class Agendacontactos extends CI_Controller {
     $lista     ='';
     foreach($contactos as $contacto){
       $lista.= $this->load->view('card/contacto_card',$contacto,true);
+    }
+    $data = array(
+      'contactos'=> $lista
+    );
+    return $data;
+  }
+
+  public function listarReclamos(){       
+     $reclamos = $this->Agendacontactos_model->listaReclamos();
+    $lista     ='';
+    foreach($reclamos as $reclamo){
+      $lista.= $this->load->view('card/reclamo_card',$reclamo,true);
     }
     $data = array(
       'contactos'=> $lista
