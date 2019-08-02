@@ -46,10 +46,15 @@
 					<?php }?>
 				</div>
 				<div class="col-md-3 btn-group">
-					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info"><i class="fa fa-magic d-inline mr-2"></i>Editar</button>
-					<button id ="eliminar<?php echo $id?>" class="btn btn-danger" ata-toggle="tooltip" data-placement="top" title="Eliminar usuario"><i class="fa fa-user-times"></i></button>
+					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info">Editar</button>
+					<a class="btn btn-sm  btn-danger" href="<?php echo  base_url()?>Agendacontactos/baja/<?php echo $id; ?>" role="button">Eliminar</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c1140e22650f51bff695daebc7fbf0c6fd460da3

@@ -53,9 +53,13 @@ class Agendacontactos extends CI_Controller {
     } else { return false;}
   }
 
-  public function baja($data){
-    $this->load->model('Agendacontactos_model'); 
-    $nombre = $this->Agendacontactos_model->baja($data);
+  public function baja(){
+    $this->load->model('Agendacontactos_model');
+    $id = $this->uri->segment(3); 
+    $data = array(
+      'estado' => 2,
+    );
+    $this->Agendacontactos_model->baja($id,$data);
     redirect('Agendacontactos/inicio');
   } 
 
