@@ -39,7 +39,7 @@ class Agendacontactos_model extends CI_Model
         $this->db->select('reclamo.*');
         $this->db->from('reclamo');
         $this->db->where('reclamo.estado',1);
-        $this->db->order_by("reclamo.id asc , reclamo.fecha asc");
+        $this->db->order_by("reclamo.id ");
 
         $query = $this->db->get();
         return $query->result();

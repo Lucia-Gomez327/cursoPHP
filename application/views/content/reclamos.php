@@ -9,7 +9,7 @@
 				<i class="fas fa-users d-inline"></i>
 			</button>
 			<span class="navbar-brand w-100">
-				<h1 class="text-center text-default"><i class="fab fa-leanpub text-primary"></i>&nbsp; Reclamos y Sugerencias</h1>
+				<h1 class="text-center text-default text-secundary "><i class="fab fa-leanpub  text-primary"></i>&nbsp; Reclamos y Sugerencias</h1>
 			</span>
 			<ul class=" navbar-nav ">
 				<div class="btn-group mb-2 btn-group-lg mr-2 ">
@@ -24,7 +24,7 @@
 				</div>
 				
 			</nav>
-			<!-- Lista Contactos -->
-		<!-- 	<div id="listaContactos" class="list-group">
-		 		<x?= $contactos; ?> -->
+			<!-- Lista Reclamos -->
+		<div id="listaReclamos" class="list-group">
+		 		<?php echo $reclamos; ?> 
 
