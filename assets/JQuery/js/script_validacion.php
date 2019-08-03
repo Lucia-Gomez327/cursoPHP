@@ -1,7 +1,7 @@
 <script>
 
 	$("#f_agregar").onclick(function(event){
-
+		alert("funciona");
 		var nombre= $("#f_nombre").val();
 		var apellido= $("#f_apellido").val();
 		var DNI=$("#f_DNI").val();
@@ -49,9 +49,7 @@
 				}				
 			}
 		}
-
-
-if(!e || !p){
+		if(!e || !p){
 			event.preventDefault();
 		}
 

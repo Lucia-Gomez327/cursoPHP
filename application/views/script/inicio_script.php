@@ -41,7 +41,7 @@
 	
 	cambiarAction('modificar');
 
-}
+};
 
 $('#eliminar_usuarios').click(function(){
 	//mostrar checkbox
@@ -58,6 +58,7 @@ $('#eliminar_usuarios').click(function(){
 	//$('#Contacto_Card').attr('data-toggle', 'modal');
 });
 
+
 function Reclamos(){
 	window.location.replace("<?php echo base_url();?>AgendaContactos/reclamos");
 }
@@ -69,9 +70,6 @@ function Inicio(){
 function quitarSugerencias(){
 	$('#bReclamos #btn_sugerencias').addClass('invisible');
 }
-
-
-
 
 
 

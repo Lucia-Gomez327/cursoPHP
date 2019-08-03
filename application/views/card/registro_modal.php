@@ -21,8 +21,8 @@
 						<div class="col-sm-12">
 							<div class="main-login main-center">
 								<!-- FORM -->
-
 								<input class="d-none" id="f_id" name="id">
+
 								<div class="form-group">
 									<label for="nombre" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
 									<div class="cols-sm-10">
@@ -85,15 +85,12 @@
 								</div>
 
 								<div class="form-group">
+
 									<div class="custom-file">
 										<input type="file" class="custom-file-input form-control-file border" name="foto" id="foto" lang="es">
 										<label class="custom-file-label " for="customFileLang" >Seleccionar Foto de Perfil</label>
 									</div>
 								</div>
-								
-
-
-
 							</div>
 						</div> 	
 
