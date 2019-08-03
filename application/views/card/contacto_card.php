@@ -56,7 +56,9 @@
 				<div class="col-md-3 btn-group">
 
 					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info"><i class="fas fa-magic"></i> Editar</button>
-					<a class="btn btn-sm  btn-danger" href="<?php echo  base_url()?>Agendacontactos/baja/<?php echo $id; ?>" role="button"> <i class="fas fa-user-times w-100 "></i></a>
+					<button id="eliminar.<?php echo $id?>" class="btn btn-sm  btn-danger" onclick="Eliminar(this)">
+					 <i class="fas fa-user-times w-100 "></i>
+					</button>
 				</div>
 			</div>
 		</div>

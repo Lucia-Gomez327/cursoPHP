@@ -42,6 +42,14 @@
 	cambiarAction('modificar');
 
 };
+function Eliminar(btn){
+	btn_id = $(btn).attr('id').split('.')[1];
+	contacto = "#C_"+btn_id;
+	nombreContacto = $(contacto +' #nombre').html();
+	if(confirm("Desea eliminar a "+ nombreContacto+"?")){
+		window.location.replace("<?php echo base_url();?>AgendaContactos/baja/"+btn_id);
+	}
+}
 
 $('#eliminar_usuarios').click(function(){
 	//mostrar checkbox
