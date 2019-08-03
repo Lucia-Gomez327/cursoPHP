@@ -8,8 +8,8 @@
 		
 		<div class="card-body d-flex flex-row " >		
 			<!-- IMAGE -->
-			<div style="width: 160px;height: 160px;  border-radius: 50%;overflow: hidden;position: relative; " >	
-				<img height="160px" style=" margin: auto; "  src="<?php echo  base_url()."db/img/".$foto;?>" class="img-responsive " alt="">
+			<div style="width: 160px;height: 160px;  border-radius: 50%;overflow: hidden;text-align: center; " >	
+				<img  style="height: 100%; object-fit: cover;  "  src="<?php echo  base_url()."db/img/".$foto;?>" class="img-responsive center-block" alt="">
 			</div>
 			<!------------ CARD BODY ------------>
 			<div class="card-body">
@@ -21,11 +21,12 @@
 				<div  class="collapse-content">
 					<table>
 						<tr>
-							<td colspan="2"><h3 class="text-success" id="telefono"><?php echo $telefono;?></h3></td>
+							<td colspan="2"><h3 class="text-success"><i class="fas fa-phone-alt"></i> <span  id="telefono"><?php echo $telefono;?></span></h3></td>
 						</tr>
-						<?php if(isset($email)){?>
+						<?php if(isset($email) && $email != null){?>
 							<tr>
-								<td colspan="2"><h5 class="text-info" id="email"><?php echo $email;?></h5></td>
+								
+								<td colspan="2"><h5 class="text-info" > <i class="fas fa-envelope"></i> <span id="email"><?php echo $email;?></span></h5></td>
 							</tr>
 						<?php }?>
 					</table>
@@ -35,26 +36,28 @@
 		</div>
 		<!-- INFO -->
 		<div class="collapse " name="info" id="info<?php echo $id?>">
-			<div class="row text-center">
-				<div class="col ">
-					<?php if($fechaN != 0){?>	
+			<div class="row text-center ">
+				
+				<h5 class="col offset-md-1">
+					<?php if($fechaN != 0){?>
+						<i class="far fa-calendar-alt"></i>
 						Fecha de Nacimiento :  <span id="fechaN"><?php echo $fechaN;?></span>
 					<?php }?>
-					<?php if($DNI != 0){?>
-						DNI : <span id="DNI"><?php echo $DNI;?></span>
+				</h5>
+				
+				<?php if($DNI != 0){?>
 
-					<?php }?>
-				</div>
+					<h5 class="col">
+						<i class="fas fa-portrait"></i>
+						DNI : <span id="DNI"><?php echo $DNI;?></span>
+					</h5>
+				<?php }?>
+
 				<div class="col-md-3 btn-group">
-					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info">Editar</button>
-					<a class="btn btn-sm  btn-danger" href="<?php echo  base_url()?>Agendacontactos/baja/<?php echo $id; ?>" role="button">Eliminar</a>
+					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)"   class="btn btn-info"><i class="fas fa-magic"></i> Editar</button>
+					<a class="btn btn-sm  btn-danger" href="<?php echo  base_url()?>Agendacontactos/baja/<?php echo $id; ?>" role="button"> <i class="fas fa-user-times w-100 "></i></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c1140e22650f51bff695daebc7fbf0c6fd460da3

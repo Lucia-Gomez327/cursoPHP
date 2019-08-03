@@ -16,7 +16,26 @@ class Agendacontactos extends CI_Controller {
 
 
 //VISTA DE LA LISTA DE RECLAMOS
+  public function reclamos(){
+    $this->load->model('Agendacontactos_model');    
+    $this->load->view('/header/header');
+    $this->load->view('/content/reclamos', $this->listarReclamos()); 
+    $this->load->view('/script/inicio_script');
+    $this->load->view('/footer/footer');
+  }
 
+  public function agregarReclamo(){
+    $contenido = $this->input->post('contenido_reclamo');
+    $fecha = date('m/d/Y g:ia');
+    $data = array(
+      'contenido' => $contenido,
+      'fecha' =>  $fecha
+    );
+
+
+    $this->Agendacontactos_model->agregar_reclamo($data);                      
+    redirect('Agendacontactos/reclamos');
+  }
 
 
   public function agregar(){
@@ -36,8 +55,9 @@ class Agendacontactos extends CI_Controller {
       'email'    => $email,
       'telefono' => $telefono
     );
+
 //Validacion de Email Unico
-    if(!$this->Agendacontactos_model->buscar_x_email($email)){
+    if($email == '' ||!$this->Agendacontactos_model->buscar_x_email($email)){
       $this->Agendacontactos_model->agregar($data);                      
       $ID = $this->db->insert_id(); 
 //Upload de Imagen
@@ -120,30 +140,30 @@ class Agendacontactos extends CI_Controller {
   }
 
   public function listarReclamos(){       
-     $reclamos = $this->Agendacontactos_model->listaReclamos();
-    $lista     ='';
-    foreach($reclamos as $reclamo){
-      $lista.= $this->load->view('card/reclamo_card',$reclamo,true);
-    }
-    $data = array(
-      'contactos'=> $lista
-    );
-    return $data;
+   $reclamos = $this->Agendacontactos_model->listaReclamos();
+   $lista     ='';
+   foreach($reclamos as $reclamo){
+    $lista.= $this->load->view('card/reclamo_card',$reclamo,true);
   }
+  $data = array(
+    'contactos'=> $lista
+  );
+  return $data;
+}
 
-  public function upload_img($id){
+public function upload_img($id){
 
-    if($_FILES['foto']['name']) {
-      $config['file_name']     = $id;
-      $config['upload_path']   = './db/img/';
-      $config['quality']       = '70%';
-      $config['allowed_types'] = 'gif|jpg|png';
-      $config['overwrite']     = TRUE;
+  if($_FILES['foto']['name']) {
+    $config['file_name']     = $id;
+    $config['upload_path']   = './db/img/';
+    $config['quality']       = '70%';
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['overwrite']     = TRUE;
 
-      $this->load->library('upload', $config);
-      $this->upload->do_upload('foto');
-      return $this->upload->data('file_name');
-    }else{ return false; }
-  }
-  }
-  ?>
+    $this->load->library('upload', $config);
+    $this->upload->do_upload('foto');
+    return $this->upload->data('file_name');
+  }else{ return false; }
+}
+}
+?>

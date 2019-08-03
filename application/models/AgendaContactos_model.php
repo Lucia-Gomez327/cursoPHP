@@ -9,7 +9,11 @@ class Agendacontactos_model extends CI_Model
     public function agregar($data){
         return $this->db->insert('contacto',$data);      
     }
- 
+
+    public function agregar_reclamo($data){
+        return $this->db->insert('reclamo',$data);
+    }
+    
     public function modificar($data){
         $this->db->select('contacto.*');
         $this->db->where('contacto.id',$data['id']);
@@ -18,7 +22,7 @@ class Agendacontactos_model extends CI_Model
 
     public function baja($id, $data){  
         $this->db->where('contacto.id',$id);
-       return $this->db->update('contacto', $data);     
+        return $this->db->update('contacto', $data);     
     }    
     
 
@@ -31,11 +35,11 @@ class Agendacontactos_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-     public function listaReclamos(){
+    public function listaReclamos(){
         $this->db->select('reclamo.*');
         $this->db->from('reclamo');
         $this->db->where('reclamo.estado',1);
-        $this->db->order_by("reclamo.id asc , contacto.fecha asc");
+        $this->db->order_by("reclamo.id asc , reclamo.fecha asc");
 
         $query = $this->db->get();
         return $query->result();

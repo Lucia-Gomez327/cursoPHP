@@ -1,5 +1,5 @@
 
-<button data-toggle="modal" data-target="#reclamoModal" id="btn_reclamo" type="button" class="btn btn-outline-warning" ata-toggle="tooltip" data-placement="bottom" title="Reclamos y Sugerencias"><i class="fa fa-bullhorn"></i></button>
+<button data-toggle="modal" data-target="#reclamoModal" id="btn_reclamo" type="button" class="btn btn-outline-warning" ata-toggle="tooltip" data-placement="bottom" title="Reclamar" onclick="quitarSugerencias()"><i class="fa fa-bullhorn"></i></button>
 <!-- Modal -->
 
 <div class="modal fade" id="reclamoModal">
@@ -28,8 +28,8 @@
 					</div> 	
 					<!-- Modal footer -->
 					<div class="form-group w-100 mb-4">
-						<button onclick="Reclamos()"  type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal" ata-toggle="tooltip" title="Más reclamos y soluciones">Sugerencias</button>
-						<button id="f_button" type="submit"  class="btn btn-warning btn-lg login-button float-right	" ata-toggle="tooltip" title="Reclamar"><i class="fa fa-bullhorn"></i></button>
+						<button id="btn_sugerencias" onclick="Reclamos()"  type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal" ata-toggle="tooltip" title="Más reclamos y soluciones">Sugerencias</button>
+						<button id="btn_reclamar" type="submit"  class="btn btn-warning btn-lg login-button float-right	" ata-toggle="tooltip" title="Reclamar"><i class="fa fa-bullhorn"></i></button>
 					</div>
 
 				</form>
