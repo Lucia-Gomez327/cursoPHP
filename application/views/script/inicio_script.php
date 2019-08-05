@@ -87,6 +87,8 @@ function nombre_tel(nombre,telefono){
 		$(f_telefono).removeClass('border-danger');
 		return true;
 	}
+	<<<<<<< HEAD
+
 };
 
 function v_fecha(fechaN)
@@ -106,8 +108,6 @@ function v_fecha(fechaN)
 		$(f_fechaN).removeClass('border-danger');
 		return true;
 	}
-
-<<<<<<< HEAD
 
 };
 

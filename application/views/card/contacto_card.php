@@ -42,11 +42,11 @@
 					<?php }?>
 					<?php if($DNI != 0){?>
 						DNI : <span id="DNI"><?php echo $DNI;?></span>
-
 					<?php }?>
+					<<<<<<< HEAD
 				</div>
 				<div class="col-md-3 btn-group">
-<<<<<<< HEAD
+
 					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)" class="btn btn-info">Editar</button>
 					<button id ="eliminar<?php echo $id?>" class="btn btn-danger">Eliminar</button>
 =======
@@ -60,6 +60,3 @@
 </div>
 <<<<<<< HEAD
 =======
-
-
->>>>>>> c1140e22650f51bff695daebc7fbf0c6fd460da3

@@ -19,8 +19,6 @@
 	<script
 	src="<?= base_url(); ?>assets/JQuery/js/jquery-3.4.1.min.js"> </script>
 
-	
-
 	<style>
 		.border{
 			border: grey solid 2px;
