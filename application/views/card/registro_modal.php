@@ -9,19 +9,20 @@
 		<div class="modal-content">
 
 			<!-- Modal Header -->
-			<div class="modal-header">
-				<h4 class="modal-title">AGENDAR CONTACTO</h4>
+			<div class="modal-header text-center">
+				<h3 class="modal-title ml-5 text-primary"> <i class="far fa-address-card"></i>&nbsp; AGENDAR CONTACTO</h3>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 
 			<!-- Modal Body -->
 			<div class="container">
-				<div class="row main"> 
-					<div class="col-sm-12">
-						<div class="main-login main-center">
-							<!-- FORM -->
-							<form id="form" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>Agendacontactos/agregar">
-								<input  class="d-none" id="f_id" name="id">
+				<form id="form" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?= base_url();?>Agendacontactos/agregar">
+					<div class="row main"> 
+						<div class="col-sm-12">
+							<div class="main-login main-center">
+								<!-- FORM -->
+								<input class="d-none" id="f_id" name="id">
+
 								<div class="form-group">
 									<label for="nombre" class="cols-sm-2 control-label"><b>* NOMBRE</b></label>
 									<div class="cols-sm-10">
@@ -46,7 +47,7 @@
 									<label for="DNI" class="cols-sm-2 control-label"><b>DNI</b></label>
 									<div class="cols-sm-10">
 										<div class="input-group">
-											<span class="input-group-text"><i class="fas fa-user-alt" aria-hidden="true"></i></span>
+											<span class="input-group-text"><i class="fas fa-portrait"></i></span>
 											<input type="text" class="form-control" name="DNI" id="f_DNI"  placeholder="DNI">
 										</div>
 									</div>
@@ -83,21 +84,26 @@
 									</div>
 								</div>
 
-
 								<div class="form-group">
-									<input type="file" name="foto" id="foto" 		 class="form-control-file border">
-								</div>
-								<button id="f_agendar" name="f_agendar"type="submit"  class="btn btn-primary btn-lg btn-block login-button">AGENDAR</button>
 
-							</form>
+									<div class="custom-file">
+										<input type="file" class="custom-file-input form-control-file border" name="foto" id="foto" lang="es">
+										<label class="custom-file-label " for="customFileLang" >Seleccionar Foto de Perfil</label>
+									</div>
+								</div>
+							</div>
+						</div> 	
+
+						<!-- Modal footer -->
+						<div class="modal-footer w-100 mr-3">
+							<div class="row btn-group w-100">
+								
+								<button id="btn_agendar" type="submit"  class=" col-md-10 btn btn-primary btn-lg "><i class="fas fa-user-check"></i> &nbsp;AGENDAR</button>
+								<button type="button" class=" col-md-2 btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+							</div>
 						</div>
 					</div>
-				</div> 	
-
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">CERRAR</button>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
