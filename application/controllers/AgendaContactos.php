@@ -82,11 +82,24 @@ public function baja(){
   $this->load->model('Agendacontactos_model');
   $id = $this->uri->segment(3); 
   $data = array(
-    'estado' => 2,
+    'estado' => 2
   );
   $this->Agendacontactos_model->baja($id,$data);
   redirect('Agendacontactos/inicio');
 } 
+
+
+public function bajaReclamo(){
+  $this->load->model('Agendacontactos_model');
+  $id = $this->uri->segment(3); 
+  $data = array(
+    'estado' => 2
+  );
+  $this->Agendacontactos_model->bajaReclamo($id,$data);
+  redirect('Agendacontactos/reclamos');
+} 
+
+
 
 public function modificar (){
   $this->load->model('Agendacontactos_model'); 
@@ -132,6 +145,22 @@ public function otenerContacto(){
 }
 
 
+public function buscar(){
+  $this->load->model('Agendacontactos_model'); 
+  $busqueda    = $this->input->post('buscar');
+  $contactos = $this->Agendacontactos_model->buscar($busqueda);
+  $lista     ='';
+  foreach($contactos as $contacto){
+    $lista.= $this->load->view('inicio',$contacto,true);
+  }
+  $data = array(
+    'contactos'=> $lista
+  );
+  return $data;
+
+}
+
+
 public function listarContactos(){
   $contactos = $this->Agendacontactos_model->listaContactos();
   $lista     ='';
@@ -148,7 +177,13 @@ public function listarReclamos(){
  $reclamos = $this->Agendacontactos_model->listaReclamos();
  $lista     ='';
  foreach(array_reverse($reclamos) as $reclamo){
-  $lista.= $this->load->view('card/reclamo_card',$reclamo,true);
+  if($reclamo->estado == 2){
+   $reclamo->bColor = 'border-danger';
+ }else{
+   $reclamo->bColor = 'border-warning';
+
+ }
+ $lista.= $this->load->view('card/reclamo_card',$reclamo,true);
 }
 $data = array(
   'reclamos'=> $lista

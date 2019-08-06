@@ -10,7 +10,10 @@
 
 			<!-- Modal Header -->
 			<div class="modal-header text-center">
-				<h3 class="modal-title ml-5 text-primary"> <i class="far fa-address-card"></i>&nbsp; AGENDAR CONTACTO</h3>
+				<h3 class="modal-title ml-5 text-primary"> 
+					<i class="fas fa-user-astronaut"></i>
+					<!-- <i class="far fa-address-card"></i> -->
+				&nbsp; AGENDAR CONTACTO</h3>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 
@@ -98,8 +101,8 @@
 						<div class="modal-footer w-100 mr-3">
 							<div class="row btn-group w-100">
 								
-								<button id="btn_agendar" type="submit"  class=" col-md-10 btn btn-primary btn-lg "><i class="fas fa-user-check"></i> &nbsp;AGENDAR</button>
-								<button type="button" class=" col-md-2 btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+								<button id="btn_agendar" type="submit"  class=" col-md-10 btn btn-success btn-lg "><i class="fas fa-user-check"></i> &nbsp;AGENDAR</button>
+								<button type="button" class=" col-md-2 btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-chevron-right"></i></button>
 							</div>
 						</div>
 					</div>

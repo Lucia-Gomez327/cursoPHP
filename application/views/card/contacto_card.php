@@ -38,10 +38,10 @@
 		<div class="collapse " name="info" id="info<?php echo $id?>">
 			<div class="row text-center ">
 				
-				<h5 class="col offset-md-1">
+				<h5 class="col ml-4">
 					<?php if($fechaN != 0){?>
 						<i class="far fa-calendar-alt"></i>
-						Fecha de Nacimiento :  <span id="fechaN"><?php echo $fechaN;?></span>
+						Fecha de Nac. :  <span id="fechaN"><?php echo $fechaN;?></span>
 					<?php }?>
 				</h5>
 				
@@ -50,21 +50,20 @@
 					<h5 class="col">
 						<i class="fas fa-portrait"></i>
 						DNI : <span id="DNI"><?php echo $DNI;?></span>
-
-					<?php }?>
-					
-				</div>
-				<div class="col-md-3 btn-group">
-
-					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)" class="btn btn-info">Editar</button>
-					<button id ="eliminar<?php echo $id?>" class="btn btn-danger">Eliminar</button>
-
 					</h5>
 				<?php }?>
 
-				
+
+				<div class=" btn-group col-md-5">
+					<button  data-toggle="modal" data-target="#myModal" id ="editar.<?php echo $id?>" onclick="Editar(this)" class="  btn btn-outline-info ">
+						<i class="fas fa-magic"></i> Editar
+					</button>
+
+					<button id ="eliminar.<?php echo $id?>" class="btn btn-outline-danger z-depth-3 col-md-2" onclick="Eliminar(this)"><i class=" fas fa-user-times "></i>
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

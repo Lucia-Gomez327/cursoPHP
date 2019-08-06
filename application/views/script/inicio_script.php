@@ -51,6 +51,14 @@ function Eliminar(btn){
 	}
 }
 
+function EliminarReclamo(btn){
+	btn_id = $(btn).attr('id').split('.')[1];
+	if(confirm("Desea eliminar su reclamo?")){
+		window.location.replace("<?php echo base_url();?>AgendaContactos/bajaReclamo/"+btn_id);
+	}
+}
+
+
 $('#eliminar_usuarios').click(function(){
 	//mostrar checkbox
 	$('div[name=cb_eliminar]').toggleClass('d-none');
@@ -70,6 +78,8 @@ $('#eliminar_usuarios').click(function(){
 function Reclamos(){
 	window.location.replace("<?php echo base_url();?>AgendaContactos/reclamos");
 }
+
+
 function Inicio(){
 	window.location.replace("<?php echo base_url();?>AgendaContactos/inicio");
 }
@@ -182,4 +192,30 @@ function vDNI(DNI)
 		return true;
 	}
 }
+
+function Buscar(busqueda){
+	$.ajax({
+	    // En data puedes utilizar un objeto JSON, un array o un query string
+	    data: {"parametro1" : "valor1", "parametro2" : "valor2"},
+	    //Cambiar a type: POST si necesario
+	    type: "GET",
+	    // Formato de datos que se espera en la respuesta
+	    dataType: "json",
+	    // URL a la que se enviará la solicitud Ajax
+	    url: "<?php echo base_url();?>AgendaContactos/",
+})
+	.done(function( data, ) {
+		if ( console && console.log ) {
+			console.log( "La solicitud se ha completado correctamente." );
+		}
+	})
+	.fail(function( jqXHR, textStatus, errorThrown ) {
+		if ( console && console.log ) {
+			console.log( "La solicitud a fallado: " +  textStatus);
+		}
+	});
+}
+
+
+
 </script>

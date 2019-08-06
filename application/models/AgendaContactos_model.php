@@ -24,6 +24,10 @@ class Agendacontactos_model extends CI_Model
         $this->db->where('contacto.id',$id);
         return $this->db->update('contacto', $data);     
     }    
+    public function bajaReclamo($id, $data){  
+        $this->db->where('reclamo.id',$id);
+        return $this->db->update('reclamo', $data);     
+    }    
     
 
     public function listaContactos(){
