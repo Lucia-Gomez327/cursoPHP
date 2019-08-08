@@ -19,9 +19,9 @@
 					<?= $this->load->view('card/reclamo_modal',null,true);?>
 				</div>
 				<!-- BUSCAR -->
-				<div class="btn-group mb-2 btn-group-lg mr-2 ">
+				<div class="btn-group mb-2 btn-group-lg mr-2 ">	
 					<input type="text" placeholder="  Buscar..." id="buscar" name="buscar">
-					<button class="btn btn-outline-info"><i class="fa fa-search"></i></button>
+					<button id="btn_buscar" class="btn btn-outline-info"><i class="fa fa-search"></i></button>
 				</div>
 
 

@@ -146,17 +146,17 @@ public function otenerContacto(){
 
 
 public function buscar(){
-  $this->load->model('Agendacontactos_model'); 
-  $busqueda    = $this->input->post('buscar');
-  $contactos = $this->Agendacontactos_model->buscar($busqueda);
-  $lista     ='';
-  foreach($contactos as $contacto){
-    $lista.= $this->load->view('inicio',$contacto,true);
-  }
-  $data = array(
-    'contactos'=> $lista
-  );
-  return $data;
+  // $this->load->model('Agendacontactos_model'); 
+  // $busqueda    = $this->input->post('busqueda');
+  // $contactos = $this->Agendacontactos_model->buscar_x_nombre($busqueda);
+  // $lista     ='';
+  // foreach($contactos as $contacto){
+  //   $lista.= $this->load->view('inicio',$contacto,true);
+  // }
+  // $data = array(
+  //   'contactos'=> $lista
+  // );
+  // return $data;
 
 }
 
